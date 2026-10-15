@@ -1,0 +1,180 @@
+/* Container Layout */
+.ts-hover-showcase-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+/* Left Sidebar Navigation */
+.ts-sidebar-nav {
+    flex: 0 0 250px;
+    max-width: 250px;
+}
+
+.ts-cat-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ts-cat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    background: #f7f7f7;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ts-cat-arrow {
+    font-size: 13px;
+    color: #555;
+    transition: transform 0.2s ease;
+}
+
+.ts-cat-item:hover,
+.ts-cat-item.ts-active {
+    background: #ebebeb;
+    color: #000;
+}
+
+.ts-cat-item.ts-active .ts-cat-arrow {
+    transform: translateX(3px);
+}
+
+/* Right Content Panels */
+.ts-content-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.ts-product-panel {
+    display: none;
+    animation: tsFadeIn 0.25s ease-in-out;
+}
+
+.ts-product-panel.ts-active {
+    display: block;
+}
+
+@keyframes tsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Products Grid */
+.ts-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Product Card */
+.ts-product-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* Badges */
+.ts-badge-container {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.ts-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.ts-badge-shipping {
+    background-color: #00b050;
+    color: #fff;
+}
+
+.ts-badge-hot {
+    background-color: #ff2a55;
+    color: #fff;
+    margin-left: auto;
+}
+
+/* Thumbnail */
+.ts-product-thumbnail {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.ts-product-thumbnail img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Product Info */
+.ts-product-title {
+    margin: 10px 0 6px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.ts-product-title a {
+    text-decoration: none;
+    color: #111;
+}
+
+.ts-product-excerpt {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+    margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .ts-hover-showcase-container {
+        flex-direction: column;
+    }
+    .ts-sidebar-nav {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+    .ts-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .ts-products-grid {
+        grid-template-columns: 1fr;
+    }
+}
