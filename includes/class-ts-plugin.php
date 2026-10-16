@@ -65,6 +65,21 @@ class TS_Plugin {
             TS_SHOWCASE_VERSION,
             true
         );
+
+        wp_register_style(
+            'ts-category-tabs-style',
+            TS_SHOWCASE_URL . 'assets/css/ts-category-tabs.css',
+            array(),
+            TS_SHOWCASE_VERSION
+        );
+
+        wp_register_script(
+            'ts-category-tabs-script',
+            TS_SHOWCASE_URL . 'assets/js/ts-category-tabs.js',
+            array( 'jquery' ),
+            TS_SHOWCASE_VERSION,
+            true
+        );
     }
 
     /**
@@ -73,5 +88,8 @@ class TS_Plugin {
     public function register_widgets( $widgets_manager ) {
         require_once TS_SHOWCASE_PATH . 'widgets/class-ts-category-hover-widget.php';
         $widgets_manager->register( new \TS_Category_Hover_Widget() );
+
+        require_once TS_SHOWCASE_PATH . 'widgets/class-ts-category-product-tabs-widget.php';
+        $widgets_manager->register( new \TS_Category_Product_Tabs_Widget() );
     }
 }

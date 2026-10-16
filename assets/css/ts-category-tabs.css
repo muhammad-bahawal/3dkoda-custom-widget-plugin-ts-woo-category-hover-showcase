@@ -1,0 +1,335 @@
+/**
+ * TS Category Product Tabs Styles
+ * Clean, lightweight styling for navigation and outer grid.
+ * Zero overrides on Elementor Theme Builder Loop Item internal containers.
+ */
+
+/* Container */
+.ts-product-tabs-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Horizontal Tabs Navigation Wrapper */
+.ts-product-tabs-nav-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    margin-bottom: 32px;
+}
+
+.ts-product-tabs-nav-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+/* Tabs Navigation List */
+.ts-product-tabs-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #e5e7eb;
+    gap: 32px;
+    box-sizing: border-box;
+}
+
+/* Tab Item */
+.ts-tab-item {
+    position: relative;
+    padding: 10px 4px 14px 4px;
+    margin-bottom: -1px;
+    cursor: pointer;
+    color: #707070;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    border-bottom: 2px solid transparent;
+    user-select: none;
+    white-space: nowrap;
+    transition: color 0.25s ease, border-color 0.25s ease;
+    outline: none;
+}
+
+.ts-tab-item:hover,
+.ts-tab-item:focus-visible {
+    color: #111827;
+}
+
+.ts-tab-item.is-active {
+    color: #111827;
+    font-weight: 600;
+    border-bottom: 2px solid #ff4a11;
+}
+
+/* Content Container & Panels */
+.ts-product-tabs-content {
+    position: relative;
+    width: 100%;
+}
+
+.ts-tab-panel {
+    display: none;
+    width: 100%;
+}
+
+.ts-tab-panel.is-active {
+    display: block;
+}
+
+/* Outer Products Grid */
+.ts-loop-products-grid,
+.ts-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure grid items do not overflow grid track boundaries */
+.ts-loop-products-grid > *,
+.ts-products-grid > * {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Fallback Card (Only used when no Elementor Loop Template is assigned) */
+.ts-product-fallback-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 16px;
+    padding: 24px;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ts-product-fallback-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    border-color: #e2e8f0;
+}
+
+.ts-card-top-meta {
+    min-height: 20px;
+    margin-bottom: 12px;
+}
+
+.ts-card-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8e9aa8;
+}
+
+.ts-card-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.ts-card-media img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.ts-product-fallback-card:hover .ts-card-media img {
+    transform: scale(1.04);
+}
+
+.ts-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.ts-card-brand {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    margin-bottom: 4px;
+}
+
+.ts-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 6px 0;
+    line-height: 1.25;
+}
+
+.ts-card-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.ts-card-title a:hover {
+    color: #ff4a11;
+}
+
+.ts-card-excerpt {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.ts-card-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.ts-card-pill {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 4px 10px;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.ts-card-stock {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    margin-top: auto;
+    padding-top: 12px;
+    margin-bottom: 16px;
+}
+
+.ts-stock-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.ts-stock-dot.in-stock {
+    background-color: #f97316;
+}
+
+.ts-stock-dot.out-of-stock {
+    background-color: #94a3b8;
+}
+
+.ts-card-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 16px;
+    margin-top: auto;
+}
+
+.ts-card-price-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.ts-card-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.ts-card-price del {
+    font-size: 15px;
+    color: #94a3b8;
+    font-weight: 400;
+    margin-right: 6px;
+}
+
+.ts-card-price ins {
+    text-decoration: none;
+}
+
+.ts-card-vat-note {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.ts-card-action-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #0f172a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ts-card-action-btn svg {
+    display: block;
+}
+
+.ts-card-action-btn:hover {
+    background-color: #ff4a11;
+    transform: scale(1.06);
+    color: #ffffff;
+}
+
+.ts-no-products {
+    padding: 30px 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px dashed #cbd5e1;
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1024px) {
+    .ts-loop-products-grid,
+    .ts-products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ts-loop-products-grid,
+    .ts-products-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .ts-product-tabs-nav {
+        gap: 20px;
+    }
+
+    .ts-tab-item {
+        font-size: 15px;
+        padding-bottom: 12px;
+    }
+}
